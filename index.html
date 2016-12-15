@@ -2,12 +2,19 @@
 <html>
 	<head>
 		<meta charset="utf-8">
+
+		<title>Ionic Push Notifications</title>
+
+		<meta name="description" content="Ionic Push Notification">
+		<meta name="author" content="Ionic Push Notification">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>reveal.js</title>
-
 		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/white.css">
+		<link rel="stylesheet" href="css/theme/nicobytes.css" id="theme">
 
 		<!-- Theme used for syntax highlighting of code -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
@@ -24,8 +31,255 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
+				<section>
+					<section data-background="#b1e3e2">
+						<img data-src="img/cover.jpg">
+					</section>
+					<section data-background="white">
+						<h1 style="color:black">Sponsors</h1>
+					</section>
+					<section data-background="white">
+						<img data-src="img/logo_globant.jpg">
+						<p>
+							<a style="color:black" href="https://www.globant.com/" target="_blank">https://www.globant.com/</a>
+						</p>
+					</section>
+					<section data-background="#4E8EF7">
+						<img data-src="img/ion-book-wh.png">
+						<p>
+							<a style="color:white" href="http://www.ion-book.com/" target="_blank">http://www.ion-book.com/</a>
+						</p>
+					</section>
+					<section data-background="white">
+						<h1 style="color:black">Speakers</h1>
+					</section>
+					<section data-background="white">
+						<img data-src="img/carlosrojas.png">
+						<p>
+							<a style="color:black" href="http://www.carlosrojasblog.com/" target="_blank">http://www.carlosrojasblog.com/</a>
+						</p>
+					</section>
+					<section data-background="white">
+						<img data-src="img/nicobytes.png">
+						<p>
+							<a style="color:black" href="https://www.nicobytes.com/" target="_blank">https://www.nicobytes.com/</a>
+						</p>
+					</section>
+				</section>
+				<section>
+					<h1>Ionic Push Notifications</h1>
+					<p>
+						<small>by <a href="http://nicobytes.com">@nicobytes</a> / <a href="https://www.meetup.com/Hybrid-Apps-Colombia/">@hybridappscol</a></small>
+					</p>
+				</section>
+				<section>
+					<h2>Connect with confidence</h2>
+					<p>
+						Send dynamic, targeted, push notifications to all, or a segment of your
+						users. Ionic’s simple push notifications allow you to grow and retain
+						your mobile app user base.
+					</p>
+					<img width="1600" data-src="img/push-dotted-map.png" alt="Up arrow" >
+				</section>
+				<section data-background="img/ionic-cloud.png">
+					<h1 style="color:#182841;">Ionic Cloud?</h1>
+					</br></br></br></br></br></br>
+				</section>
+				<section data-background="white">
+					<img data-src="img/products.png" alt="Up arrow" >
+				</section>
+				<section>
+					<h2>Connect with confidence</h2>
+					<p>
+						Send dynamic, targeted, push notifications to all, or a segment of your
+						users. Ionic’s simple push notifications allow you to grow and retain
+						your mobile app user base.
+					</p>
+					<img width="1600" data-src="img/push-dotted-map.png" alt="Up arrow" >
+				</section>
+				<section data-background="white">
+					<img data-src="img/send-push-diagram.png" alt="Up arrow" >
+				</section>
+				<section data-background="white">
+					<img data-src="img/demo-time.png" alt="Up arrow" >
+				</section>
+				<section>
+					<h2>Create your project</h2>
+					<pre style="font-size: 0.8em;">
+						<code class="hljs" data-trim>
+ionic start demoTime tabs --v2
+cd demoTime
+ionic serve
+code .
+						</code>
+					</pre>
+				</section>
+				<section data-background="white">
+					<h2 style="color:#182841;">Sign up</h2>
+					<img data-src="img/apps.png" alt="Up arrow" >
+				</section>
+				<section>
+					<h2>Installation</h2>
+					<pre style="font-size: 0.8em;">
+						<code class="hljs" data-trim>
+npm install @ionic/cloud-angular --save
+						</code>
+					</pre>
+				</section>
+				<section>
+					<h2>Setup</h2>
+					<pre style="font-size: 0.8em;">
+						<code class="hljs" data-trim>
+ionic io init
+						</code>
+					</pre>
+					<p>Check ionic.config.json</p>
+				</section>
+				<section>
+					<h2>Configuration</h2>
+					<pre>
+						<code class="hljs" data-trim>
+import { CloudSettings, CloudModule } from '@ionic/cloud-angular';
+
+const cloudSettings: CloudSettings = {
+  'core': {
+    'app_id': 'APP_ID'
+  }
+};
+
+@NgModule({
+  ...
+  imports: [
+    IonicModule.forRoot(MyApp),
+    CloudModule.forRoot(cloudSettings)
+  ],
+  ...
+})
+export class AppModule {}
+						</code>
+					</pre>
+					<p>Check src/app/app.module.ts</p>
+				</section>
+				<section>
+					<h1>Ionic Cloud</h1>
+					<p class="fragment fade-up">now, Ionic Push</p>
+				</section>
+				<section>
+					<h1>Prerequisites</h1>
+					<ul>
+						<li>Cloud Client installed and configured</li>
+						<li>A physical Android or iOS Device</li>
+						<li>A Security Profile with Push Credentials (see FCM Project &amp; API Key and iOS Push Certificate)</li>
+					</ul>
+				</section>
+				<section data-background="white">
+					<img data-src="img/firebase.png" alt="firebase">
+				</section>
+				<section>
+					<h2>Generating a Server key and Sender ID in firebase.google.com</h2>
+				</section>
+				<section>
+					<h2>Attach Credentials in apps.ionic.io</h2>
+				</section>
+				<section>
+					<h2>Plugin Installation</h2>
+					<pre>
+						<code class="hljs" data-trim>
+ionic platform add android
+ionic plugin add phonegap-plugin-push --variable SENDER_ID=your_sender_id --save
+						</code>
+					</pre>
+				</section>
+				<section>
+					<h2>Cloud Configuration</h2>
+					<pre>
+						<code class="hljs" data-trim>
+const cloudSettings: CloudSettings = {
+  'core': {
+    'app_id': 'APP_ID',
+  },
+  'push': {
+    'sender_id': 'SENDER_ID',
+    'pluginConfig': {
+      'ios': {
+        'badge': true,
+        'sound': true
+      },
+      'android': {
+        'iconColor': '#343434'
+      }
+    }
+  }
+};
+						</code>
+					</pre>
+				</section>
+				<section>
+					<h2>Injecting Push</h2>
+					<pre>
+						<code class="hljs" data-trim>
+import {Component} from '@angular/core';
+import {
+  Push,
+  PushToken
+} from '@ionic/cloud-angular';
+
+@Component( ... )
+export class MyPage {
+  constructor(public push: Push) {
+    ...
+  }
+}
+						</code>
+					</pre>
+				</section>
+				<section>
+					<h2>Registering Device Tokens</h2>
+					<pre style="font-size: 0.8em;">
+						<code class="hljs" data-trim>
+this.push.register().then((t: PushToken) => {
+ return this.push.saveToken(t,{
+  ignore_user: true
+ });
+}).then((t: PushToken) => {
+ console.log('Token saved:', t.token);
+});
+						</code>
+					</pre>
+				</section>
+				<section>
+					<h2>Handling Notifications</h2>
+					<pre style="font-size: 0.8em;">
+						<code class="hljs" data-trim>
+this.push.rx.notification()
+  .subscribe((msg) => {
+    alert(msg.title + ': ' + msg.text);
+  });
+						</code>
+					</pre>
+				</section>
+				<section>
+					<h2>Build</h2>
+					<pre style="font-size: 0.8em;">
+						<code class="hljs" data-trim>
+ionic run android
+						</code>
+					</pre>
+				</section>
+				<section>
+					<h2>Sending Pushes</h2>
+					<img data-src="img/ss-push-create-notification-1.png" alt="">
+				</section>
+				<section data-background="http://i.giphy.com/90F8aUepslB84.gif"></section>
+				<section data-background="white">
+					<h2 style="color:#182841;">Sending Pushes from everywhere</h2>
+					<img data-src="img/rest.png" alt="">
+					<p><a href="http://docs.ionic.io/api/endpoints/push.html">API REST</a></p>
+				</section>
+				<section >
+					<h2>Questions?</h2>
+					<p class="fragment fade-up">Thanks!</p>
+				</section>
 			</div>
 		</div>
 
@@ -39,8 +293,6 @@
 
 				// More info https://github.com/hakimel/reveal.js#dependencies
 				dependencies: [
-					{ src: 'plugin/markdown/marked.js' },
-					{ src: 'plugin/markdown/markdown.js' },
 					{ src: 'plugin/notes/notes.js', async: true },
 					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
 				]
