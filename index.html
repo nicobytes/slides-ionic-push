@@ -32,31 +32,16 @@
 		<div class="reveal">
 			<div class="slides">
 				<section>
-					<section data-background="#b1e3e2">
-						<img data-src="img/cover.jpg">
-					</section>
-					<section data-background="white">
-						<h1 style="color:black">Sponsors</h1>
-					</section>
-					<section data-background="white">
-						<img data-src="img/logo_globant.jpg">
-						<p>
-							<a style="color:black" href="https://www.globant.com/" target="_blank">https://www.globant.com/</a>
+					<section data-background="#FFF">
+						<img data-src="img/angular-bolivia.jpeg">
+						<p style="color:#000">
+							Angular Bolivia
 						</p>
 					</section>
 					<section data-background="#4E8EF7">
 						<img data-src="img/ion-book-wh.png">
 						<p>
 							<a style="color:white" href="http://www.ion-book.com/" target="_blank">http://www.ion-book.com/</a>
-						</p>
-					</section>
-					<section data-background="white">
-						<h1 style="color:black">Speakers</h1>
-					</section>
-					<section data-background="white">
-						<img data-src="img/carlosrojas.png">
-						<p>
-							<a style="color:black" href="http://www.carlosrojasblog.com/" target="_blank">http://www.carlosrojasblog.com/</a>
 						</p>
 					</section>
 					<section data-background="white">
@@ -69,8 +54,12 @@
 				<section>
 					<h1>Ionic Push Notifications</h1>
 					<p>
-						<small>by <a href="http://nicobytes.com">@nicobytes</a> / <a href="https://www.meetup.com/Hybrid-Apps-Colombia/">@hybridappscol</a></small>
+						<small>by <a href="http://nicobytes.com">@nicobytes</a> </small>
 					</p>
+				</section>
+				<section>
+					<h1>Slides</h1>
+					<p>http://www.nicobytes.com/slides-ionic-push	</p>
 				</section>
 				<section>
 					<h2>Connect with confidence</h2>
@@ -107,7 +96,7 @@
 					<h2>Create your project</h2>
 					<pre style="font-size: 0.8em;">
 						<code class="hljs" data-trim>
-ionic start demoTime tabs --v2
+ionic start demoTime tabs
 cd demoTime
 ionic serve
 code .
@@ -115,7 +104,7 @@ code .
 					</pre>
 				</section>
 				<section data-background="white">
-					<h2 style="color:#182841;">Sign up</h2>
+					<h2 style="color:#182841;">Sign up / Create Project</h2>
 					<img data-src="img/apps.png" alt="Up arrow" >
 				</section>
 				<section>
@@ -127,10 +116,10 @@ npm install @ionic/cloud-angular --save
 					</pre>
 				</section>
 				<section>
-					<h2>Setup</h2>
+					<h2>Ionic Id</h2>
 					<pre style="font-size: 0.8em;">
 						<code class="hljs" data-trim>
-ionic io init
+ionic link
 						</code>
 					</pre>
 					<p>Check ionic.config.json</p>
@@ -142,7 +131,7 @@ ionic io init
 import { CloudSettings, CloudModule } from '@ionic/cloud-angular';
 
 const cloudSettings: CloudSettings = {
-  'core': {
+  core: {
     'app_id': 'APP_ID'
   }
 };
@@ -185,8 +174,8 @@ export class AppModule {}
 					<h2>Plugin Installation</h2>
 					<pre>
 						<code class="hljs" data-trim>
-ionic platform add android
-ionic plugin add phonegap-plugin-push --variable SENDER_ID=your_sender_id --save
+ionic cordova platform add android
+ionic cordova plugin add phonegap-plugin-push --variable SENDER_ID=your_sender_id --save
 						</code>
 					</pre>
 				</section>
@@ -202,11 +191,12 @@ const cloudSettings: CloudSettings = {
     'sender_id': 'SENDER_ID',
     'pluginConfig': {
       'ios': {
-        'badge': true,
-        'sound': true
+        badge: true,
+        sound: true
       },
       'android': {
-        'iconColor': '#343434'
+        iconColor: '#343434',
+        forceShow: true
       }
     }
   }
@@ -215,7 +205,7 @@ const cloudSettings: CloudSettings = {
 					</pre>
 				</section>
 				<section>
-					<h2>Injecting Push</h2>
+					<h2>Injecting Push (app.component.ts)</h2>
 					<pre>
 						<code class="hljs" data-trim>
 import {Component} from '@angular/core';
@@ -225,8 +215,8 @@ import {
 } from '@ionic/cloud-angular';
 
 @Component( ... )
-export class MyPage {
-  constructor(public push: Push) {
+export class MyApp {
+  constructor(private push: Push) {
     ...
   }
 }
@@ -262,7 +252,7 @@ this.push.rx.notification()
 					<h2>Build</h2>
 					<pre style="font-size: 0.8em;">
 						<code class="hljs" data-trim>
-ionic run android
+ionic cordova run android -prod
 						</code>
 					</pre>
 				</section>
